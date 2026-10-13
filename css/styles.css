@@ -1,0 +1,739 @@
+@font-face { font-family: "Roboto Mono"; src: url("../assets/fonts/roboto-mono-thin.ttf") format("truetype"); font-style: normal; font-weight: 100; font-display: swap; }
+
+@font-face {
+ font-family: "Romie Trial";
+ src: url("../assets/fonts/romie-trial-light-italic.otf") format("opentype");
+ font-weight: 300;
+ font-style: italic;
+ font-display: swap;
+}
+
+/* Change these values to adjust the opening screen. */
+:root { --background: #000; --logo-size: 220px; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--background); color: #f3f1e9; }
+
+
+.landing 
+{ height: 800px; 
+   position: relative; 
+   display: grid; 
+   place-items: center; }
+
+
+.landing-content 
+{ display: flex; 
+   flex-direction: column; 
+   align-items: center; 
+   gap: 16px; 
+   transform: translateY(18px); }
+
+
+.logo 
+{ width: var(--logo-size); 
+   height: auto; 
+   display: block; }
+
+
+.scroll-arrow 
+{ display: grid; 
+   place-items: center; 
+   width: 120px; 
+   height: 120px; 
+   color: white; 
+   text-decoration: none; }
+
+
+.scroll-arrow .landing-arrow-art
+{ width: 100%; 
+   height: 100%; 
+   object-fit: contain; 
+   animation: bounce 1.8s ease-in-out infinite; }
+
+   
+.scroll-arrow:focus-visible 
+{ outline: 2px solid white; 
+   outline-offset: 5px; 
+   border-radius: 50%; }
+
+
+@keyframes bounce 
+{ 0%, 100% { transform: translateY(-5px); } 
+   50% { transform: translateY(7px); } }
+
+
+.about-label 
+{ position: absolute;
+  bottom: calc(100% + 8px);
+  left: 30%;
+  transform: translateX(-50%);
+
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 100;
+  font-size: 14px;
+  letter-spacing: 2px;}
+
+
+.tracker 
+{ height: 750px; 
+   overflow: hidden; 
+   display: grid; 
+   grid-template-rows: 30% minmax(0, 1fr); }
+
+
+
+.tracker-header 
+{ position: relative; 
+   min-height: 0; 
+   padding: 0; }
+
+
+h1 
+{ position: absolute; 
+   left: 21px; 
+   top: 26px; 
+   margin: 0; 
+   font-family: "Romie Trial", Georgia, serif; 
+   font-size: 45px; 
+   line-height: .9; 
+   font-weight: 300; 
+   font-style: italic; 
+   white-space: nowrap; }
+
+
+.coffee {
+  position: absolute;
+  left: 1200px;
+  top: 80px;
+  width: 103px;
+  height: auto;
+}
+
+
+.about-label {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 45px;
+  transform: translateX(-50%);
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 100;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+
+/* Yellow covers pink, pink covers blue. The right and bottom edges crop. */
+.tracker-panels 
+{ display: flex; 
+   width: 100%; 
+   height: 100%; 
+   align-items: flex-start; 
+   overflow: hidden; 
+   isolation: isolate; }
+
+
+.panel 
+{ display: block; 
+   position: relative; 
+   flex: 0 0 41.229385307%; 
+   width: 41.229385307%; 
+   height: auto; 
+   min-width: 0; }
+
+
+
+.panel + .panel 
+{ margin-left: -7.196401799%; }
+
+
+.panel-yellow 
+{ z-index: 3; 
+   border-top-right-radius: 4px; }
+
+
+.panel-pink 
+{ z-index: 2; }
+
+
+.panel-purple 
+{ z-index: 1; }
+
+
+@media (max-width: 600px) {
+ :root { --logo-size: 150px; }
+ .landing-content { gap: 32px; } }
+
+
+@media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior: auto; }
+ .scroll-arrow .landing-arrow-art { animation: none; }
+ .landing-content { transform: none; } }
+
+
+
+/* Bring the hovered or keyboard-focused sheet above the other sheets. */
+.panel-art 
+{ display: block; 
+   width: 100%; 
+   height: auto; }
+
+
+.panel:hover, .panel:focus-within 
+{ z-index: 10; }
+
+.panel:focus-visible 
+{ outline: 2px solid #000; 
+   outline-offset: -4px; }
+
+
+.open-tab 
+{ position: absolute; 
+   left: 50%; 
+   top: 20.89%; 
+   transform: translate(-50%, -50%); 
+   display: grid; 
+   place-items: center; 
+   width: 24.8%; 
+   aspect-ratio: 2.18; 
+   border: 1px dashed rgba(0,0,0,.28); 
+   border-radius: 1000px; 
+   background: rgba(220,220,220,.20); 
+   color: #000; 
+   font: 100 22.5px "Roboto Mono", monospace; 
+   letter-spacing: -.06em; 
+   text-decoration: none; 
+   opacity: 0; 
+   visibility: hidden; 
+}
+
+
+.panel:hover .open-tab, .panel:focus-within .open-tab 
+{ opacity: 1; 
+   visibility: visible; }
+
+
+.open-tab:focus-visible 
+{ outline: 3px solid #000; 
+   outline-offset: 4px; }
+
+   
+/* Touch users can tap OPEN without needing hover. */
+@media (hover: none) { .open-tab { opacity: 1; visibility: visible; } }
+
+
+.blank-page 
+{ display: none; 
+   min-height: 100vh; 
+   min-height: 100svh; 
+   background: #000; }
+
+body.show-blank main 
+{ display: none; }
+
+
+body.show-blank .blank-page.active 
+{ display: block; }
+
+
+/* Yellow destination: positions measured from the 1512 × 982 reference. */
+.yellow-detail 
+{ position: relative; 
+   height: 800px; 
+   overflow: hidden; }
+
+
+.detail-back {
+  position: absolute;
+  left: 30px;
+  top: 40px;
+  width: 26px;
+  height: 33px;
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+   
+.detail-back svg 
+{ width: 16px; 
+   height: 28px; }
+
+.detail-back:focus-visible 
+{ outline: 1px solid white; 
+   outline-offset: 4px; }
+
+
+.detail-controls 
+{ position: absolute; 
+   left: 235px; 
+   top: 38px; 
+   display: flex; 
+   gap: 17px; }
+
+   
+.detail-control 
+{ display: grid; 
+   place-items: center; 
+   width: 172px; 
+   height: 98px; 
+   border: 1px dashed #eee; 
+   border-radius: 50%; 
+   color: #eee; 
+   font-family: "Romie Trial", Georgia, serif; 
+   font-weight: 300; 
+   font-style: italic; 
+   font-size: 21px; }
+
+
+.detail-sheet 
+{ position: absolute; 
+   left: 540px; 
+   top: 140px; 
+   width: 430px; }
+
+
+.detail-sheet img 
+{ display: block; 
+   width: 100%; 
+   height: auto; }
+
+.detail-focus 
+{ position: absolute; 
+   top: 20.89%; 
+   left: 0; 
+   width: 100%; 
+   transform: translateY(-50%); 
+   margin: 0; 
+   color: #000; 
+   text-align: center; 
+   font-family: "Roboto Mono", monospace; 
+   font-size: 5.2px; 
+   font-weight: 400; 
+}
+
+
+/* Blue destination: measured against the 1512 × 982 supplied image. */
+.blue-detail 
+{ position: relative; 
+   height: 800px; 
+   overflow: hidden; }
+
+
+.blue-detail .detail-back 
+{ left: 15px; 
+   top: 29px; }
+
+
+.blue-detail .detail-focus 
+{ color: #a13232; }
+
+
+.reading-player 
+{ position: absolute; 
+   display: flex; 
+   align-items: center; 
+   border-radius: 15px; 
+   background: #cccce6; 
+   color: #232226; }
+
+
+.reading-player svg 
+{ display: block; 
+   width: 15px; 
+   height: 30px; 
+   margin-left: 20px; }
+
+
+.reading-player-1 svg, .reading-player-3 svg, .reading-player-5 svg 
+{ width: 11px; 
+   height: 21px; }
+
+
+.reading-player-3 svg, .reading-player-5 svg 
+{ margin-left: 20px; }
+
+
+.receipt-layer 
+{ position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+.scattered-receipt 
+{ position: absolute; 
+   width: 13.095238095vw; 
+   height: auto; 
+   transform: translate(-50%, -50%) rotate(var(--receipt-angle)); 
+   transition: left .45s ease, top .45s ease, transform .45s ease; }
+
+
+.yellow-detail .detail-controls, .yellow-detail .detail-back 
+{ z-index: 20; }
+
+
+.sort-receipts, .stack-receipts, .randomize-receipts 
+{ padding: 0; 
+   background: transparent; 
+   cursor: pointer; }
+
+
+.sort-receipts:focus-visible, .stack-receipts:focus-visible, .randomize-receipts:focus-visible 
+{ outline: 2px solid white; 
+   outline-offset: 4px; }
+
+@media (prefers-reduced-motion: reduce) 
+{ .scattered-receipt { transition: none; } }
+
+
+.about-trigger 
+{ padding: 0; 
+   border: 0; 
+   background: transparent; 
+   cursor: pointer; }
+
+
+.coffee-art 
+{ display: block; 
+   width: 100%; 
+   height: auto; }
+
+
+.about-trigger:focus-visible 
+{ outline: 2px solid white; outline-offset: 6px; }
+.about-dialog 
+{ position: fixed; 
+  inset: 0; 
+  padding: 0; 
+  border: 0; 
+  margin: 0; 
+  width: 100vw; 
+  height: 100vh; 
+  height: 100svh; 
+  max-width: none; 
+  max-height: none; 
+  background: #000; 
+  overflow: hidden; }
+
+
+.about-dialog::backdrop 
+{ background: #000; }
+
+/* Display just the supplied artwork box from the full reference screenshot. */
+.about-artwork { position: relative; width: 100%; height: 100%; overflow: hidden; }
+.about-artwork img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+
+.pink-detail { position: relative; height: 100vh; height: 100svh; overflow: hidden; }
+.pink-detail .detail-back { left: 2.447089947vw; }
+.pink-detail .detail-focus { color: #304cce; }
+
+.yellow-detail.is-sorted .detail-control { border-style: dashed; }
+.yellow-detail.is-sorted .sort-receipts { border-style: dashed; }
+
+/* Yellow desk layout, measured on the 2048 by 1330 artwork. */
+.yellow-detail {
+  background: #c6b08c;
+}
+.desk-controls-art { position:absolute; left:3.41796875vw; top:13.15789474svh; width:23.33984375vw; height:64.28571429svh; z-index:20; pointer-events:none; }
+.yellow-detail .detail-back { left:2.8vw; top:6.5svh; }
+.yellow-detail .detail-controls { left:10.15vw; top:27.82svh; flex-direction:column; gap:1.05svh; z-index:21; }
+.yellow-detail .detail-control { width:9.1vw; height:5.25svh; border:0; color:transparent; }
+.yellow-detail .scattered-receipt { width:11.71875vw; }
+.yellow-detail:not(.is-sorted):not(.is-stacked) .scattered-receipt { pointer-events:auto; cursor:grab; touch-action:none; user-select:none; -webkit-user-select:none; }
+.scattered-receipt.is-dragging { cursor:grabbing !important; transition:none; }
+
+/* Original full-resolution PNGs, kept as separate elements. */
+.yellow-sticky { position:absolute; left:4.0vw; top:13.16svh; width:23.34vw; z-index:20; }
+.yellow-sticky > img { display:block; width:100%; height:auto; }
+.yellow-card { position:absolute; left:3.85vw; top:54.95svh; width:23.34vw; height:auto; z-index:20; }
+.yellow-detail .yellow-sticky .detail-controls { inset:0; display:block; }
+.yellow-detail .yellow-sticky .detail-control { position:absolute; left:27%; width:43%; height:14%; }
+.yellow-sticky .sort-receipts { top:37%; }
+.yellow-sticky .stack-receipts { top:54%; }
+.yellow-sticky .randomize-receipts { top:71%; }
+
+/* Hit areas aligned to the new shadow-free artwork, including PNG transparency. */
+.yellow-detail .yellow-sticky .detail-control { left:23.3%; width:34.9%; height:14.5%; }
+.yellow-sticky .sort-receipts { top:39%; }
+.yellow-sticky .stack-receipts { top:56%; }
+.yellow-sticky .randomize-receipts { top:73%; }
+
+/* Trimmed sticky-note PNG: preserve its visible size and align controls. */
+.yellow-sticky { width:19.055vw; }
+.yellow-detail .yellow-sticky .detail-control { left:28.5%; width:43%; }
+
+/* Share the cream card right edge while preserving the sticky note size. */
+.yellow-sticky { left:8.135vw; }
+
+/* Combined original cards PNG; controls overlay the printed buttons. */
+.yellow-sticky { left:3.85vw; width:23.34vw; }
+.yellow-detail .yellow-sticky .detail-control { left:28.5%; width:43%; height:8%; }
+.yellow-sticky .sort-receipts { top:23.3%; }
+.yellow-sticky .stack-receipts { top:33.5%; }
+.yellow-sticky .randomize-receipts { top:43.7%; }
+
+/* Pink page: separate original PNGs positioned from the finalized reference. */
+.pink-detail { background:#7c2542; }
+.pink-cards { position:absolute; left:3.85591071vw; top:12.10937500svh; width:22.01927955vw; height:auto; }
+.pink-ticket { position:absolute; display:block; height:auto; user-select:none; }
+.pink-detail .detail-back { left:2.8vw; top:5.6svh; z-index:20; }
+
+.ticket-item { position:absolute; outline:none; }
+.pink-ticket-image { display:block; width:100%; height:auto; user-select:none; -webkit-user-drag:none; }
+.ticket-callout { position:absolute; left:50%; bottom:78%; width:100%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; color:#f2e8dd; font-family:"Roboto Mono",monospace; font-weight:100; font-size:.8vw; opacity:0; pointer-events:none; }
+.ticket-callout-line { display:block; width:2vw; height:5svh; overflow:visible; }
+.ticket-callout-line path { stroke:currentColor; stroke-width:.6; fill:none; vector-effect:non-scaling-stroke; }
+.ticket-item:hover .ticket-callout, .ticket-item:focus-visible .ticket-callout, .ticket-item.is-dragging .ticket-callout { opacity:1; }
+.ticket-yuen .ticket-callout { left:37%; bottom:75%; }
+.ticket-yukimi .ticket-callout { left:50%; bottom:65%; }
+.ticket-yuzu .ticket-callout { left:60%; bottom:70%; }
+.ticket-yu .ticket-callout { left:50%; bottom:70%; }
+.ticket-yuli .ticket-callout, .ticket-yui .ticket-callout { bottom:auto; top:78%; flex-direction:column-reverse; }
+.ticket-yui .ticket-callout { left:60%; }
+.ticket-yui { cursor:grab; touch-action:none; }
+.ticket-yui.is-dragging { cursor:grabbing; }
+.ticket-item:focus-visible { outline:1px dashed #f2e8dd; outline-offset:5px; }
+
+.placed-yui-name { display:none; position:absolute; left:33%; top:41%; color:#5c594d; font-family:"Roboto Mono",monospace; font-weight:100; font-size:1.6vw; transform:rotate(-10deg); }
+.ticket-yui.is-placed { cursor:default; }
+.ticket-yui.is-placed .placed-yui-name { display:block; }
+.ticket-yui.is-placed .ticket-callout { display:none; }
+
+.pink-refresh { position:absolute; left:13.8vw; top:80.65svh; width:2.3vw; height:3.4svh; padding:0; border:0; background:transparent; color:#f2e8dd; cursor:pointer; }
+.pink-refresh[hidden] { display:none; }
+.pink-refresh svg { width:100%; height:100%; }
+.pink-refresh:focus-visible { outline:1px solid currentColor; outline-offset:5px; }
+
+.pink-refresh { top:83svh; }
+.pink-refresh img { display:block; width:100%; height:100%; object-fit:contain; }
+
+/* Anchor refresh below the actual artwork instead of the viewport. */
+.pink-cards-group { position:absolute; left:3.85591071vw; top:12.109375svh; width:22.01927955vw; }
+.pink-cards-group .pink-cards { position:static; display:block; width:100%; height:auto; }
+.pink-cards-group .pink-refresh { left:50%; top:calc(100% + 4svh); transform:translateX(-50%); }
+
+/* Keep the reset button in normal flow after the entire card image. */
+.pink-cards-group .pink-refresh { position:static; display:block; margin:4svh auto 0; transform:none; }
+.pink-cards-group .pink-refresh[hidden] { display:none; }
+
+/* Finalized blue destination uses the original cards and book PNGs. */
+.blue-cards-art { position:absolute; left:3.85591071vw; top:13.67svh; width:22.01927955vw; height:auto; }
+.blue-book-art { position:absolute; left:33.55vw; top:12.6svh; width:55vw; height:auto; }
+.blue-detail .detail-back { left:1.7vw; top:3.5svh; z-index:20; }
+
+
+.coffee:hover .coffee-art {
+  animation: coffee-jiggle 0.4s ease-in-out;
+}
+
+@keyframes coffee-jiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+  75% { transform: rotate(-3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coffee:hover .coffee-art {
+    animation: none;
+  }
+}
+
+.about-back {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  width: 20;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.about-back img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.about-back:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 5px;
+}
+
+/* Header above the sticky notes */
+.tracker {
+  height: auto;
+  grid-template-rows: auto auto;
+}
+
+.tracker-header {
+  height: 21.75vw;
+}
+
+/* Three overlapping sticky notes */
+.tracker-panels {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.tracker-panels .panel {
+  flex: 0 0 40%;
+  width: 40%;
+}
+
+.tracker-panels .panel + .panel {
+  margin-left: -11.2%;
+}
+
+.tracker-panels .panel-art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* OPEN appears in the blank area above DATE */
+.tracker-panels .open-tab {
+  left: 50%;
+  top: 14%;
+}
+
+/* Fit the header and sticky notes into one screen */
+.tracker {
+  height: 100svh;
+  grid-template-rows: 32.5% minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.tracker-header {
+  height: auto;
+  min-height: 0;
+}
+
+/* Scale the heading with the screen width */
+.tracker-header h1 {
+  left: 2.5vw;
+  top: 5.5svh;
+  font-size: 2.65vw;
+  line-height: 1;
+}
+
+/* Keep the coffee inside the header */
+.tracker-header .coffee {
+  left: auto;
+  right: 8vw;
+  top: 12svh;
+  width: 10vw;
+}
+
+/* Fill the remaining screen height */
+.tracker-panels {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.tracker-panels .panel {
+  flex: 0 0 40%;
+  width: 40%;
+  height: 100%;
+}
+
+.tracker-panels .panel + .panel {
+  margin-left: -11.2%;
+}
+
+/* Extend the blue note to close the right-hand gap */
+.tracker-panels .panel-purple {
+  flex-basis: 42.4%;
+  width: 42.4%;
+}
+
+.tracker-panels .panel-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+}
+
+/* When blue is hovered or keyboard-focused:
+   blue covers pink, and pink covers yellow */
+.tracker-panels:has(.panel-purple:hover, .panel-purple:focus-within)
+.panel-yellow {
+  z-index: 1;
+}
+
+.tracker-panels:has(.panel-purple:hover, .panel-purple:focus-within)
+.panel-pink {
+  z-index: 2;
+}
+
+.tracker-panels:has(.panel-purple:hover, .panel-purple:focus-within)
+.panel-purple {
+  z-index: 3;
+}
+
+.pink-cards-group .cream-ticket-overlay {
+  position: absolute;
+  left: 13.6%;
+  top: 74.3%;
+  width: 72.8%;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Hide the outline when the YUI ticket is placed */
+#pink-page:has(.ticket-yui.is-placed) .cream-ticket-overlay {
+  display: none;
+}
+
+
+.reading-book {
+  position: absolute;
+  left: 33.55vw;
+  top: 12.6svh;
+  width: 55vw;
+}
+
+.reading-book-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.book-tabs {
+  position: absolute;
+  inset: 0;
+}
+
+.book-tab {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.book-cover-tab {
+  position: absolute;
+  left: 14.4%;
+  top: 0;
+  width: 4.8%;
+  height: 99%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.book-cover-tab:focus-visible {
+  outline: 2px solid white;
+  outline-offset: -2px;
+}

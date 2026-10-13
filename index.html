@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yui's Daily Habit Tracker</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main>
+ <section class="landing" aria-label="Welcome to Yui's daily habit tracker">
+
+  <div class="landing-content">
+   <img class="logo" src="assets/images/cup-logo.png" alt="Hand-drawn cup: belongs to Yui" width="231" height="231">
+   <a class="scroll-arrow" href="#tracker" aria-label="Scroll to the daily habit tracker">
+<img class="landing-arrow-art" src="assets/images/scroll-arrow.png" alt="" aria-hidden="true">
+   </a>
+  </div>
+ </section>
+ <section class="tracker" id="tracker" aria-labelledby="tracker-title">
+  <header class="tracker-header">
+   <h1 id="tracker-title">Daily Habit Tracker of a 20 something year old that spends<br>too much and has too much to do</h1>
+   <button class="coffee about-trigger" type="button" aria-label="About this habit tracker" aria-haspopup="dialog">
+      
+      <img class="coffee-art" src="assets/images/coffee.png" alt="A cup of coffee with latte art" width="157" height="118"></button>
+  </header>
+<div class="tracker-panels" aria-label="Three habit tracker sheets">
+
+  <div class="panel panel-yellow" tabindex="0" aria-label="Yellow tab">
+    <img
+      class="panel-art"
+      src="assets/images/yellow-sticky-note.png"
+      alt="Yellow sticky note about receipts"
+      width="1828"
+      height="2047"
+    >
+    <a class="open-tab" href="#yellow-page">OPEN</a>
+  </div>
+
+  <div class="panel panel-pink" tabindex="0" aria-label="Pink tab">
+    <img
+      class="panel-art"
+      src="assets/images/pink-sticky-note.png"
+      alt="Pink sticky note about tickets"
+      width="1828"
+      height="2048"
+    >
+    <a class="open-tab" href="#pink-page">OPEN</a>
+  </div>
+
+  <div class="panel panel-purple" tabindex="0" aria-label="Blue tab">
+    <img
+      class="panel-art"
+      src="assets/images/blue-sticky-note.png"
+      alt="Blue sticky note about readings"
+      width="1828"
+      height="2047"
+    >
+    <a class="open-tab" href="#blue-page">OPEN</a>
+  </div>
+
+</div>
+ </section>
+</main>
+<!-- Each destination has its own section and URL hash. Add your future page content here. -->
+<section class="blank-page yellow-detail" id="yellow-page" aria-label="Yellow tab page">
+ <a class="detail-back" href="#tracker" aria-label="Back to the overlapping tabs">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 4-8 8 8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+ </a>
+ 
+ <div class="yellow-sticky"><img src="assets/images/yellow-cards.png" alt="To do: arrange my receipts"><div class="detail-controls" aria-label="Sheet layout controls">
+  <button class="detail-control sort-receipts" type="button" aria-pressed="false">SORT</button><button class="detail-control stack-receipts" type="button" aria-pressed="false">STACK</button><button class="detail-control randomize-receipts" type="button">RANDOMIZE</button>
+ </div></div>
+<div class="receipt-layer" aria-label="Scattered cafe receipts">
+<img class="scattered-receipt" src="assets/images/receipt-blue-bottle-yuwi.png" alt="Blue Bottle receipt for YUWI" data-receipt="0" draggable="false">
+<img class="scattered-receipt" src="assets/images/receipt-starbucks-yueyee.png" alt="Starbucks receipt for YUEYEE" data-receipt="1" draggable="false">
+<img class="scattered-receipt" src="assets/images/receipt-fifth-sip-yubi.png" alt="Fifth Sip receipt for YUBI" data-receipt="2" draggable="false">
+<img class="scattered-receipt" src="assets/images/receipt-blank-street-yewi.png" alt="Blank Street receipt for YEWI" data-receipt="3" draggable="false">
+<img class="scattered-receipt" src="assets/images/receipt-think-coffee-huy.png" alt="Think Coffee receipt for HUY" data-receipt="4" draggable="false">
+<img class="scattered-receipt" src="assets/images/receipt-aristole-coffee-yumi.png" alt="Aristole Coffee receipt for YUMI" data-receipt="5" draggable="false">
+<img class="scattered-receipt" src="assets/images/receipt-blank-street-yu.png" alt="Blank Street receipt for YU" data-receipt="6" draggable="false">
+<img class="scattered-receipt" src="assets/images/receipt-starbucks-yuy.png" alt="Starbucks receipt for YUY" data-receipt="7" draggable="false">
+<img class="scattered-receipt" src="assets/images/receipt-plant-shed-yuyi.png" alt="Plant Shed receipt for YUYI" data-receipt="8" draggable="false">
+</div>
+</section>
+<section class="blank-page pink-detail" id="pink-page" aria-label="Pink tab page">
+ <a class="detail-back" href="#tracker" aria-label="Back to the overlapping tabs">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 4-8 8 8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+ </a>
+ <div class="pink-cards-group"><img class="pink-cards" src="assets/images/pink-cards.png" alt="To do: find the correct name. Find the ticket with my real name, YUI, and place it onto the card below.">
+   <img
+  class="cream-ticket-overlay"
+  src="assets/images/Subtract.png"
+  alt=""
+  aria-hidden="true">
+   <button class="pink-refresh" type="button" aria-label="Reset the ticket puzzle" hidden><img src="assets/images/refresh-cw.png" alt=""></button></div>
+<div class="ticket-item ticket-ue" style="left:34.34804668vw;top:22.73437500svh;width:15.32217149vw" tabindex="0" role="group" aria-label="UE ticket"><img class="pink-ticket-image" src="assets/images/ticket-ue.png" alt="UE ticket" draggable="false"><span class="ticket-callout" aria-hidden="true"><span>UE</span><svg class="ticket-callout-line" viewBox="0 0 50 100" preserveAspectRatio="none"><path d="M25 0 L25 100"/></svg></span></div>
+<div class="ticket-item ticket-yuen" style="left:54.28716388vw;top:15.31250000svh;width:15.52511416vw" tabindex="0" role="group" aria-label="YUEN ticket"><img class="pink-ticket-image" src="assets/images/ticket-yuen.png" alt="YUEN ticket" draggable="false"><span class="ticket-callout" aria-hidden="true"><span>YUEN</span><svg class="ticket-callout-line" viewBox="0 0 50 100" preserveAspectRatio="none"><path d="M25 0 L25 100"/></svg></span></div>
+<div class="ticket-item ticket-kyu" style="left:75.79908676vw;top:20.31250000svh;width:16.03247083vw" tabindex="0" role="group" aria-label="KYU ticket"><img class="pink-ticket-image" src="assets/images/ticket-kyu.png" alt="KYU ticket" draggable="false"><span class="ticket-callout" aria-hidden="true"><span>KYU</span><svg class="ticket-callout-line" viewBox="0 0 50 100" preserveAspectRatio="none"><path d="M25 0 L25 100"/></svg></span></div>
+<div class="ticket-item ticket-yukimi" style="left:75.08878742vw;top:48.43750000svh;width:15.06849315vw" tabindex="0" role="group" aria-label="YUKIMI ticket"><img class="pink-ticket-image" src="assets/images/ticket-yukimi.png" alt="YUKIMI ticket" draggable="false"><span class="ticket-callout" aria-hidden="true"><span>YUKIMI</span><svg class="ticket-callout-line" viewBox="0 0 50 100" preserveAspectRatio="none"><path d="M25 0 L25 100"/></svg></span></div>
+<div class="ticket-item ticket-ui" style="left:67.88432268vw;top:71.79687500svh;width:15.32217149vw" tabindex="0" role="group" aria-label="UI ticket"><img class="pink-ticket-image" src="assets/images/ticket-ui.png" alt="UI ticket" draggable="false"><span class="ticket-callout" aria-hidden="true"><span>UI</span><svg class="ticket-callout-line" viewBox="0 0 50 100" preserveAspectRatio="none"><path d="M25 0 L25 100"/></svg></span></div>
+<div class="ticket-item ticket-yuli" style="left:47.03196347vw;top:71.09375000svh;width:16.03247083vw" tabindex="0" role="group" aria-label="YULI ticket"><img class="pink-ticket-image" src="assets/images/ticket-yuli.png" alt="YULI ticket" draggable="false"><span class="ticket-callout" aria-hidden="true"><span>YULI</span><svg class="ticket-callout-line" viewBox="0 0 50 100" preserveAspectRatio="none"><path d="M25 0 L25 100"/></svg></span></div>
+<div class="ticket-item ticket-yuzu" style="left:34.44951801vw;top:51.87500000svh;width:14.00304414vw" tabindex="0" role="group" aria-label="YUZU ticket"><img class="pink-ticket-image" src="assets/images/ticket-yuzu.png" alt="YUZU ticket" draggable="false"><span class="ticket-callout" aria-hidden="true"><span>YUZU</span><svg class="ticket-callout-line" viewBox="0 0 50 100" preserveAspectRatio="none"><path d="M25 0 L25 100"/></svg></span></div>
+<div class="ticket-item ticket-yu" style="left:50.07610350vw;top:51.17187500svh;width:14.51040081vw" tabindex="0" role="group" aria-label="YU ticket"><img class="pink-ticket-image" src="assets/images/ticket-yu.png" alt="YU ticket" draggable="false"><span class="ticket-callout" aria-hidden="true"><span>YU</span><svg class="ticket-callout-line" viewBox="0 0 50 100" preserveAspectRatio="none"><path d="M25 0 L25 100"/></svg></span></div>
+<div class="ticket-item ticket-yui" style="left:60.07102993vw;top:33.12500000svh;width:16.03247083vw" tabindex="0" role="group" aria-label="YUI ticket, draggable"><img class="pink-ticket-image" src="assets/images/ticket-yui.png" alt="YUI ticket" draggable="false"><span class="placed-yui-name" aria-hidden="true">YUI</span><span class="ticket-callout" aria-hidden="true"><span>YUI</span><svg class="ticket-callout-line" viewBox="0 0 50 100" preserveAspectRatio="none"><path d="M25 0 L25 100"/></svg></span></div>
+
+
+</section>
+<section class="blank-page blue-detail" id="blue-page" aria-label="Blue reading page">
+<a class="detail-back" href="#tracker" aria-label="Back to the overlapping tabs">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 4-8 8 8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+ </a>
+<img class="blue-cards-art" src="assets/images/blue-cards.png" alt="To do: do all of my readings. Click each neon pink tab. Flip through each page and you might find something cool.">
+<div class="reading-book">
+<img
+  class="reading-book-image"
+  src="assets/images/ book-cover.png"
+  alt="Name and Identity book cover"
+>
+  <nav class="book-tabs" aria-label="Book pages"></nav>
+  <button
+  class="book-cover-tab"
+  type="button"
+  aria-label="Return to the book cover"
+></button>
+</div>
+</section>
+
+<dialog class="about-dialog" aria-label="About this habit tracker">
+   <button class="about-back" type="button" aria-label="Back to the tabs">
+  <img src="assets/images/icon.png" alt="">
+</button>
+   <div class="about-artwork"><img src="assets/images/about.png" alt="About: A digital tracker and archive of a twenty-something-year-old’s many things to do. Open all the tabs, see what they have to do, and help them finish their tasks. — Yui"></div></dialog>
+
+
+
+
+<script src="js/app.js"></script>
+</body>
+</html>
